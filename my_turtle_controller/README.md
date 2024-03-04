@@ -1,6 +1,3 @@
-# Introduction
-This repository provides instructions on how to run the Turtlesim simulation and make it draw a circle.
-
 ## Requirement
 You need to be on Ubuntu version 20.04 with ROS already installed.
 
