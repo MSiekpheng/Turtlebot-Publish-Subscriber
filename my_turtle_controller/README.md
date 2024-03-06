@@ -16,11 +16,7 @@ OR
 source devel/setup.sh
 ```
 ## Usage
-To use the `my_turtle_controller` package, clone this repository into the `src` folder of your catkin workspace:
-```bash
-cd ~/catkin_ws/src
-git clone https://github.com/MSiekpheng/Turtlebot-Publish-Subscriber.git
-```
+To use the `my_turtle_controller` package, clone this repository then copy `my_turtle_controller` into the `src` folder of your catkin workspace.
 Then build the workspace with `catkin_make` and source the new package:
 ```bash
 cd ~/catkin_ws
