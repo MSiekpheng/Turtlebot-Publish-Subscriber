@@ -11,7 +11,7 @@ sudo apt install ros-noetic-velodyne-description
 ```
 
 ## Usage
-To use this, you need to clone this repository then copy the content in `src` folder into the `src` folder of your catkin workspace.
+To use this, you need to clone this repository then copy the `smb_common` folder into the `src` folder of your catkin workspace.
 Then build the workspace with `catkin_make` and source the new package:
 ```bash
 cd ~/catkin_ws
@@ -29,7 +29,6 @@ source devel/setup.sh
 Open the terminal and run
 ```bash
 roscore
-roslaunch smb_gazebo smb_gazebo.launch
-rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+roslaunch smb_gazebo robotic_programming_hw4.launch
 ```
-Now you should be able to control the robot with your keyboard.
+Now the robot simulation should start and you should be able to control the robot with your keyboard.
