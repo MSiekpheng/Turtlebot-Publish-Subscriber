@@ -1,6 +1,6 @@
 <robot name="pi_robot">
 
-    <link name="link1">
+	<link name="link1">
         <visual>
             <origin xyz="0 0 0.1" rpy="0 0 0"/>
             <geometry>
@@ -11,13 +11,13 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 0.1" rpy="0 0 0"/>
             <geometry>
                 <cylinder radius="0.5" length="0.2"/>
             </geometry>
         </collision>
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 0.1" rpy="0 0 0"/>
             <mass value="100"/>
             <inertia
                 ixx="0.1" ixy="0.0" ixz="0.0"
@@ -28,7 +28,7 @@
 
     <link name="link2">
         <visual>
-            <origin xyz="0 0 0.25" rpy="0 0 0"/>
+            <origin xyz="0 0 0.35" rpy="0 0 0"/>
             <geometry>
                 <cylinder radius="0.3" length="0.3"/>
             </geometry>
@@ -37,13 +37,13 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0 0.25" rpy="0 0 0"/>
+            <origin xyz="0 0 0.35" rpy="0 0 0"/>
             <geometry>
                 <cylinder radius="0.3" length="0.3"/>
             </geometry>
         </collision>
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 0.35" rpy="0 0 0"/>
             <mass value="0.5"/>
             <inertia
                 ixx="0.1" ixy="0.0" ixz="0.0"
@@ -52,18 +52,18 @@
         </inertial>
     </link>
 
-     <joint name="base_link__link_01" type="revolute">
+     <joint name="rotate_around" type="revolute">
         <parent link="link1"/>
         <child link="link2"/>
             <origin xyz="0 0 0"/>
             <axis xyz="0 0 1"/>
-            <limit effort="100" lower="-3.14" upper="3.14" velocity="0.5"/>
+            <limit effort="100" lower="-2" upper="2" velocity="0.5"/>
             
     </joint>
 
     <link name="link3">
         <visual>
-            <origin xyz="0 0 0.9" rpy="0 0 0"/>
+            <origin xyz="0 0 1.24" rpy="0 0 0"/>
             <geometry>
                 <box size="0.2 0.2 1.5"/>
             </geometry>
@@ -72,13 +72,13 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0 0.9" rpy="0 0 0"/>
+            <origin xyz="0 0 1.24" rpy="0 0 0"/>
             <geometry>
                 <box size="0.2 0.2 1.5"/>
             </geometry>
         </collision>
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 1.24" rpy="0 0 0"/>
             <mass value="0.5"/>
             <inertia
                 ixx="0.1" ixy="0.0" ixz="0.0"
@@ -87,7 +87,7 @@
         </inertial>
     </link>
 
-    <joint name="base_link__link_02" type="fixed">
+    <joint name="connect1" type="fixed">
         <parent link="link2"/>
         <child link="link3"/>
         <origin xyz="0 0 0.001"/>
@@ -95,7 +95,7 @@
 
     <link name="link4">
         <visual>
-            <origin xyz="0 0.15 1.55" rpy="1.57079633 0 0"/>
+            <origin xyz="0 0.15 1.9" rpy="1.57 0 0"/>
             <geometry>
                 <cylinder radius="0.2" length="0.1"/>
             </geometry>
@@ -104,13 +104,13 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0.15 1.55" rpy="1.57079633 0 0"/>
+            <origin xyz="0 0.15 1.9" rpy="1.57 0 0"/>
             <geometry>
                 <cylinder radius="0.2" length="0.1"/>
             </geometry>
         </collision>
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0.15 1.9" rpy="1.57 0 0"/>
             <mass value="0.5"/>
             <inertia
                 ixx="0.1" ixy="0.0" ixz="0.0"
@@ -119,7 +119,7 @@
         </inertial>
     </link>
 
-    <joint name="base_link__link_03" type="fixed">
+    <joint name="connect2" type="fixed">
         <parent link="link3"/>
         <child link="link4"/>
         <origin xyz="0 0 0.001"/>
@@ -127,7 +127,7 @@
 
     <link name="link5">
         <visual>
-            <origin xyz="0 0.25 0.0001" rpy="1.57079633 0 0"/>
+            <origin xyz="0 0.25 0.0001" rpy="1.57 0 0"/>
             <geometry>
                 <cylinder radius="0.2" length="0.1"/>
             </geometry>
@@ -136,13 +136,13 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0.25 1.55" rpy="1.57079633 0 0"/>
+            <origin xyz="0 0.25 0.0001" rpy="1.57 0 0"/>
             <geometry>
                 <cylinder radius="0.2" length="0.1"/>
             </geometry>
         </collision>
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0.25 0.0001" rpy="1.57 0 0"/>
             <mass value="0.5"/>
             <inertia
                 ixx="0.1" ixy="0.0" ixz="0.0"
@@ -151,32 +151,32 @@
         </inertial>
     </link>
 
-    <joint name="base_link__link_04" type="revolute">
+    <joint name="move_arm1" type="revolute">
         <parent link="link4"/>
         <child link="link5"/>
-            <origin xyz="0 0 1.55"/>
+            <origin xyz="0 0 1.9"/>
             <axis xyz="0 1 0"/>
-            <limit effort="100" lower="-3.14" upper="3.14" velocity="0.5"/>
+            <limit effort="100" lower="-2" upper="2" velocity="0.5"/>
     </joint>
 
     <link name="link6">
         <visual>
             <origin xyz="0 0.4 0.6" rpy="0 0 0"/>
             <geometry>
-                <box size="0.2 0.2 1.3"/>
+                <box size="0.2 0.2 1.4"/>
             </geometry>
             <material name="Cyan1">
                 <color rgba="0 0.9 0.9 1.0"/>
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0.4 1.7" rpy="0 0 0"/>
+            <origin xyz="0 0.4 0.6" rpy="0 0 0"/>
             <geometry>
-                <box size="0.2 0.2 1"/>
+                <box size="0.2 0.2 1.4"/>
             </geometry>
         </collision>
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0.4 0.6" rpy="0 0 0"/>
             <mass value="0.5"/>
             <inertia
                 ixx="0.1" ixy="0.0" ixz="0.0"
@@ -185,7 +185,7 @@
         </inertial>
     </link>
 
-    <joint name="base_link__link_05" type="fixed">
+    <joint name="connect3" type="fixed">
         <parent link="link5"/>
         <child link="link6"/>
         <origin xyz="0 0 0.001"/>
@@ -193,7 +193,7 @@
 
     <link name="link7">
         <visual>
-            <origin xyz="0 0.25 1.2" rpy="1.57079633 0 0"/>
+            <origin xyz="0 0.25 1.2" rpy="1.57 0 0"/>
             <geometry>
                 <cylinder radius="0.2" length="0.1"/>
             </geometry>
@@ -202,13 +202,13 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0.25 2.65" rpy="1.57079633 0 0"/>
+            <origin xyz="0 0.25 1.2" rpy="1.57 0 0"/>
             <geometry>
                 <cylinder radius="0.2" length="0.1"/>
             </geometry>
         </collision>
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0.25 1.2" rpy="1.57 0 0"/>
             <mass value="0.5"/>
             <inertia
                 ixx="0.1" ixy="0.0" ixz="0.0"
@@ -217,7 +217,7 @@
         </inertial>
     </link>
 
-    <joint name="base_link__link_06" type="fixed">
+    <joint name="connect4" type="fixed">
         <parent link="link6"/>
         <child link="link7"/>
         <origin xyz="0 0 0.001"/>
@@ -225,7 +225,7 @@
 
     <link name="link8">
         <visual>
-            <origin xyz="0 0.15 0.0001" rpy="1.57079633 0 0"/>
+            <origin xyz="0 0.15 0.0001" rpy="1.57 0 0"/>
             <geometry>
                 <cylinder radius="0.2" length="0.1"/>
             </geometry>
@@ -234,13 +234,13 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0.15 2.65" rpy="1.57079633 0 0"/>
+            <origin xyz="0 0.15 0.0001" rpy="1.57 0 0"/>
             <geometry>
                 <cylinder radius="0.2" length="0.1"/>
             </geometry>
         </collision>
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0.15 0.0001" rpy="1.57 0 0"/>
             <mass value="0.5"/>
             <inertia
                 ixx="0.1" ixy="0.0" ixz="0.0"
@@ -249,12 +249,12 @@
         </inertial>
     </link>
 
-    <joint name="base_link__link_07" type="revolute">
+    <joint name="move_arm2" type="revolute">
         <parent link="link7"/>
         <child link="link8"/>
             <origin xyz="0 0 1.2"/>
             <axis xyz="0 1 0"/>
-            <limit effort="100" lower="-3.14" upper="3.14" velocity="0.5"/>
+            <limit effort="100" lower="-2" upper="2" velocity="0.5"/>
     </joint>
     
     <link name="link9">
@@ -268,13 +268,13 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0 3.25" rpy="0 0 0"/>
+            <origin xyz="0 0 0.7" rpy="0 0 0"/>
             <geometry>
                 <box size="0.2 0.2 1.5"/>
             </geometry>
         </collision>
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 0.7" rpy="0 0 0"/>
             <mass value="0.5"/>
             <inertia
                 ixx="0.1" ixy="0.0" ixz="0.0"
@@ -283,34 +283,10 @@
         </inertial>
     </link>
 
-    <joint name="base_link__link_08" type="fixed">
+    <joint name="connect5" type="fixed">
         <parent link="link8"/>
         <child link="link9"/>
         <origin xyz="0 0 0.001"/>
     </joint>
-
-    <transmission name="tran1">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="base_link__link_01">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="motor1">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
-
-    <gazebo>
-        <plugin name="gazebo_ros_joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
-            <joint_name>base_link__link_01</joint_name>
-            <joint_name>base_link__link_02</joint_name>
-            <joint_name>base_link__link_03</joint_name>
-            <joint_name>base_link__link_04</joint_name>
-            <joint_name>base_link__link_05</joint_name>
-            <joint_name>base_link__link_06</joint_name>
-            <joint_name>base_link__link_07</joint_name>
-            <joint_name>base_link__link_08</joint_name>
-        </plugin>
-    </gazebo>
-
+ 
 </robot>
