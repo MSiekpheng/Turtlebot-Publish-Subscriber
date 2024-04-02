@@ -4,7 +4,7 @@
 You need to be on Ubuntu version 20.04 with ROS already installed.
 
 ## Creating catkin workspace
-In terminal
+In Terminal
 ```bash
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws
