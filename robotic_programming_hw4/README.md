@@ -11,7 +11,7 @@ sudo apt install ros-noetic-velodyne-description
 ```
 
 ## Usage
-To use this, you need to clone this repository then copy the `smb_common` folder into the `src` folder of your catkin workspace.
+To use this, you need to clone this repository and then copy the `smb_common` folder into the `src` folder of your catkin workspace.
 Then build the workspace with `catkin_make` and source the new package:
 ```bash
 cd ~/catkin_ws
