@@ -4,7 +4,7 @@
 You need to be on Ubuntu version 20.04 with ROS already installed.
 
 ## Creating catkin workspace
-In Terminal
+In the terminal
 ```bash
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws
@@ -40,4 +40,3 @@ rosrun turtlesim turtlesim_node
 rosrun my_turtle_controller draw_circle.py
 ```
 You should now see the turtle drawing a circle.
-
