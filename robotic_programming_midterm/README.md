@@ -22,6 +22,6 @@ source devel/setup.sh
 Open the terminal and run
 ```bash
 roscore
-roslaunch two_link_description gazebo.launch
+roslaunch two_link_description gazebo_xacro.launch
 ```
 Now the robot simulation should start and you should be able to see the robot.
